@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": "4bdf522e",
     "first_name": "Randall",
     "last_name": "Scamadine",
@@ -7,7 +8,8 @@
     "password": "yA7+~.9jmPpGhZ.K",
     "ip_address": "181.161.181.42",
     "image": "https://robohash.org/Terry.png?set=set4"
-  }, {
+  },
+  {
     "id": "048c9d33",
     "first_name": "Amye",
     "last_name": "Nowakowska",
@@ -16,7 +18,8 @@
     "password": "yU1$c(ckgc~W$gI",
     "ip_address": "28.164.132.10",
     "image": "https://robohash.org/Terrill.png?set=set4"
-  }, {
+  },
+  {
     "id": "f6e25e8c",
     "first_name": "Brandais",
     "last_name": "Hutchinson",
@@ -25,7 +28,8 @@
     "password": "vM6_Xq3f",
     "ip_address": "234.60.88.90",
     "image": "https://robohash.org/Miles.png?set=set4"
-  }, {
+  },
+  {
     "id": "26a9b63a",
     "first_name": "Darwin",
     "last_name": "Knevett",
@@ -34,7 +38,8 @@
     "password": "cF6?A)>NU\"H|2,9&",
     "ip_address": "236.154.225.113",
     "image": "https://robohash.org/Oleta.png?set=set4"
-  }, {
+  },
+  {
     "id": "86549d74",
     "first_name": "Devonna",
     "last_name": "Roscow",
@@ -43,4 +48,5 @@
     "password": "iW6'{jUV*O",
     "ip_address": "164.86.51.159",
     "image": "https://robohash.org/Eleanora.png?set=set4"
-  }]
+  }
+]
