@@ -3,28 +3,48 @@ import api from '../api/index';
 
 const Home = (): ReactElement => {
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
     const findCategories = async () => {
       const data = await api.data.getAll();
       setCategories(data);
     };
+
     findCategories();
   }, []);
 
   return (
-    <div>
-      <div>
-        <h1>Welcome to ReactStream</h1>
-        <span>Enjoy the best movie content, pick a categorie</span>
+    <div className="h-screen sm:p-auto lg:p-[10px]">
+      {/*header Section */}
+      <div className="px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">
+          <h2 className="text-4xl font-bold tracking-tight text-slate-700 sm:text-6xl">Welcome to ReactStream</h2>
+          <p className="mt-6 text-lg leading-8 text-slate-500">
+            The ultimate way to enjoy all your favorite streaming programs, we got for you the most popular and recent
+            content, just pick a category and enjoy!
+          </p>
+        </div>
+      </div>
+      {/*Categories Section */}
+      <div className="m-[50px]">
+        <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-3">
+          {categories.map((category: string, idx: number) => (
+            <div key={idx} className="group relative cursor-pointer m-4">
+              <div className="max-w-sm p-6 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">
+                <p className="text-white text-center text-4xl font-bold tracking-tight hover:text-gray-300">
+                  {category}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div>
-        <ul>
-          {categories.map((categorie: string, idx: number) => (
-            <li key={idx}>{categorie}</li>
-          ))}
-        </ul>
-      </div>
+      {categoryData.map((movie) => {
+        <div>
+          <div>{movie.movie}</div>
+        </div>
+      })
     </div>
   );
 };
