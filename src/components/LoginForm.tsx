@@ -1,31 +1,47 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useAuth } from '../context/authContext';
 
 const LoginForm = () => {
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPsw, setUserPsw] = useState<string>('');
+  const { login, isAuthenticated, error } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      alert('Redirecting to home');
+    }
+
+    if (error) {
+      alert(error);
+    }
+  }, [isAuthenticated, error]);
 
   const isValidEmail = (email: string) => {
     const emailRegex = /(@gmail|@hotmail)\.com$/i;
-    if (!emailRegex.test(email)) {
+    if (email && !emailRegex.test(email)) {
       alert('Must be a valid email to Login');
-      return;
+      return false;
     }
+
+    return true;
   };
 
   const isEmptyField = (email: string, password: string) => {
-    if (email === '' || password === '') {
-      alert('Fields are required');
-      return;
+    if (!email || !password) {
+      alert('Email and password are required');
+      return true;
     }
 
-    isValidEmail(userEmail);
+    return false;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e?.preventDefault();
-
-    isEmptyField(userEmail, userPsw);
+    const isFormValid = !isEmptyField(userEmail, userPsw) && isValidEmail(userEmail);
+    if (isFormValid) {
+      login(userEmail, userPsw);
+    }
   };
 
   return (
@@ -38,7 +54,7 @@ const LoginForm = () => {
           <div className="mt-2">
             <input
               id="email"
-              className="border border-black p-1"
+              className="border border-black p-1 w-[300px]"
               type="email"
               autoComplete="email"
               onChange={(e) => setUserEmail(e.target.value)}
@@ -55,7 +71,7 @@ const LoginForm = () => {
           <div className="mt-2">
             <input
               id="password"
-              className="border border-black p-1"
+              className="border border-black p-1 w-[300px]"
               type="password"
               autoComplete="password"
               onChange={(e) => setUserPsw(e.target.value)}
