@@ -39,12 +39,6 @@ const Home = (): ReactElement => {
           ))}
         </div>
       </div>
-
-      {categoryData.map((movie) => {
-        <div>
-          <div>{movie.movie}</div>
-        </div>
-      })
     </div>
   );
 };
