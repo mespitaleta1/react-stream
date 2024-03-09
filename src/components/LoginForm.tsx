@@ -1,15 +1,19 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useAuth } from '../context/authContext';
+//import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPsw, setUserPsw] = useState<string>('');
   const { login, isAuthenticated, error } = useAuth();
+  //const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated) {
-      alert('Redirecting to home');
+      /*TODO: create the navigate interaction here with: 
+      navigate('/home');
+       */
+      alert('Redirect to Home');
     }
 
     if (error) {
@@ -36,7 +40,7 @@ const LoginForm = () => {
     return false;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e?.preventDefault();
     const isFormValid = !isEmptyField(userEmail, userPsw) && isValidEmail(userEmail);
     if (isFormValid) {
@@ -46,7 +50,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      <form className="space-y-6" accion="">
+      <form className="space-y-6">
         <div>
           <label htmlFor="email" className="block text-sm font-medium leading-6 text-black">
             Email
@@ -78,12 +82,12 @@ const LoginForm = () => {
             />
           </div>
         </div>
-        <div>
-          <button className="border border-slate-200 p-1 bg-slate-200" onClick={() => handleSubmit()}>
-            Log in
-          </button>
-        </div>
       </form>
+      <div>
+        <button className="border border-slate-200 p-1 bg-slate-200" onClick={() => handleSubmit()}>
+          Log in
+        </button>
+      </div>
     </div>
   );
 };
