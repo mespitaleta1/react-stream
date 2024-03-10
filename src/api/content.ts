@@ -1,4 +1,4 @@
-export interface Movies {
+export interface Movie {
   id: number;
   title: string;
   category: string;
@@ -23,7 +23,7 @@ const getByCategory = async (category: string) => {
   try {
     const response = await fetch('/src/db/content.json');
     const data = await response.json();
-    const content = data.filter((item: Movies) => item?.category === category);
+    const content = data.filter((item: Movie) => item?.category === category);
     return content;
   } catch (error) {
     console.error('Error Fetching Content:', error);
@@ -35,7 +35,7 @@ const getBytitle = async (title: string) => {
   try {
     const response = await fetch('/src/db/content.json');
     const data = await response.json();
-    const content = data.find((item: Movies) => item?.title === title);
+    const content = data.find((item: Movie) => item?.title === title);
     return content;
   } catch (error) {
     console.error('Error Fetching Movie:', error);

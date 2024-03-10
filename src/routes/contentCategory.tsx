@@ -1,11 +1,11 @@
 import { ReactElement, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import type { Movies } from '../api/movie';
+import type { Movie } from '../api/movie';
 import api from '../api/';
 
 const ContentCategory = (): ReactElement => {
   let { categoryId } = useParams();
-  const [content, setContent] = useState<Movies | []>([]);
+  const [content, setContent] = useState<Movie | []>([]);
 
   useEffect(() => {
     const getData = async () => {
