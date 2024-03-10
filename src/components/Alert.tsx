@@ -1,4 +1,6 @@
-const Alert = () => {
+import { ReactElement } from 'react';
+
+const Alert = ({ title, description }: { title: string; description: string }): ReactElement => {
   return (
     <div className="rounded-md bg-red-50 p-4 mt-4">
       <div className="flex">
@@ -12,13 +14,8 @@ const Alert = () => {
           </svg>
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">Errors on submission</h3>
-          <div className="mt-2 text-sm text-red-700">
-            <ul role="list" className="list-disc space-y-1 pl-5">
-              <li>Your email must be invalid</li>
-              <li>Your password must be invalid</li>
-            </ul>
-          </div>
+          <h3 className="text-sm font-medium text-red-800">{title}</h3>
+          <div className="mt-2 text-sm text-red-700">{description}</div>
         </div>
       </div>
     </div>

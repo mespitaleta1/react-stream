@@ -1,7 +1,7 @@
 import api from '../api/';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import type { Movie } from '../api/movie';
+import Card from '../components/Card';
 
 const Movies = () => {
   const [content, setContent] = useState<Movie | []>([]);
@@ -22,15 +22,7 @@ const Movies = () => {
         {content.length > 0 ? (
           <ul className="mt-10 grid gap-x-8 gap-y-4 grid-cols-4">
             {content.map((item) => (
-              <Link to={`/content/${item.title}`} key={item.title}>
-                <li className="sm:mb-1 relative max-w-xs overflow-hidden bg-cover bg-no-repeat rounded-lg">
-                  <img
-                    src={item.image}
-                    alt={`poster of ${item.title}`}
-                    className=" max-w-xs transition duration-300 ease-in-out hover:scale-110 w-full"
-                  />
-                </li>
-              </Link>
+              <Card title={item.title} image={item.image} />
             ))}
           </ul>
         ) : (

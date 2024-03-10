@@ -16,9 +16,8 @@ const Root = (): ReactElement => {
   return (
     <div>
       <Navbar userName={userProfile?.firstName} imgProfile={userProfile?.image} />
-      <div>
-        <Outlet />
-      </div>
+
+      <Outlet />
     </div>
   );
 };

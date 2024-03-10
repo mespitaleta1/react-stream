@@ -4,7 +4,7 @@ import api from '../api/index';
 import { Movie } from '../api/content';
 import { Link } from 'react-router-dom';
 
-const ContentCategory = (): ReactElement => {
+const ContentDetails = (): ReactElement => {
   let { contentId } = useParams();
   const [content, setContentData] = useState<Movie | {}>({});
 
@@ -31,7 +31,7 @@ const ContentCategory = (): ReactElement => {
           {/*Info section */}
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative m-[200px]">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center absolute right-10">
-              <div class="text-left">
+              <div className="text-left">
                 <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">{contentId}</h1>
 
                 <div className="mt-10 flex flex-col items-start justify-start justify-center gap-x-6">
@@ -92,4 +92,4 @@ const ContentCategory = (): ReactElement => {
   );
 };
 
-export default ContentCategory;
+export default ContentDetails;

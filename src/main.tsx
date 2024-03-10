@@ -7,7 +7,7 @@ import Home from './routes/Home';
 import Movies from './routes/movies';
 import LoginForm from './routes/LoginForm';
 import ContentCategory from './routes/ContentCategory';
-import ContentDetails from './routes/contentDetails';
+import ContentDetails from './routes/ContentDetails';
 import './index.css';
 import PlayMovie from './routes/playMovie';
 
