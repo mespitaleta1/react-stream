@@ -20,14 +20,14 @@ const Movies = () => {
 
       <div>
         {content.length > 0 ? (
-          <ul className="mt-10 flex justify-between flex-wrap">
+          <ul className="mt-10 grid gap-x-8 gap-y-4 grid-cols-4">
             {content.map((item) => (
               <Link to={`/content/${item.title}`} key={item.title}>
-                <li className="sm:mb-1 mx-0 my-5 relative max-w-xs overflow-hidden bg-cover bg-no-repeat rounded-lg hover:shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]">
+                <li className="sm:mb-1 relative max-w-xs overflow-hidden bg-cover bg-no-repeat rounded-lg">
                   <img
                     src={item.image}
                     alt={`poster of ${item.title}`}
-                    className=" max-w-xs transition duration-300 ease-in-out hover:scale-110"
+                    className=" max-w-xs transition duration-300 ease-in-out hover:scale-110 w-full"
                   />
                 </li>
               </Link>

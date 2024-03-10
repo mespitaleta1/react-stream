@@ -34,7 +34,7 @@ const Navbar = ({ userName, imgProfile }: { userName: string; imgProfile: string
         <span className="text-slate-700 p-2">{userName}</span>
 
         {imgProfile ? (
-          <div className="boder border-lime-300 border-2 rounded-full mr-10">
+          <div className="boder border-indigo-500 border-2 rounded-full mr-10">
             <img className="inline-block h-8 w-8 rounded-full" src={imgProfile} alt={`${userName} profile`} />
           </div>
         ) : (
