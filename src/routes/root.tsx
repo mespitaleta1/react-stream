@@ -1,10 +1,10 @@
-import { FC, ReactNode, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Link, useNavigate } from 'react-router-dom';
+import { ReactElement, useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
+import Navbar from '../components/Navbar';
 
-const Root: FC = (): ReactNode => {
-  const { isAuthenticated } = useAuth();
+const Root = (): ReactElement => {
+  const { isAuthenticated, userProfile } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,10 +15,7 @@ const Root: FC = (): ReactNode => {
 
   return (
     <div>
-      <nav className="flex">
-        <h1>ReactStream</h1>
-        <Link to="/">Home</Link>
-      </nav>
+      <Navbar userName={userProfile?.firstName} imgProfile={userProfile?.image} />
       <div>
         <Outlet />
       </div>

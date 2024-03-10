@@ -1,8 +1,8 @@
 [
   {
     "id": "4bdf522e",
-    "first_name": "Randall",
-    "last_name": "Scamadine",
+    "firstName": "Randall",
+    "lastName": "Scamadine",
     "gender": "Male",
     "email": "rscamadine0@gmail.com",
     "password": "yA7+~.9jmPpGhZ.K",
@@ -11,8 +11,8 @@
   },
   {
     "id": "048c9d33",
-    "first_name": "Amye",
-    "last_name": "Nowakowska",
+    "firstName": "Amye",
+    "lastName": "Nowakowska",
     "gender": "Bigender",
     "email": "anowakowska1@hotmail.com",
     "password": "yU1$c(ckgc~W$gI",
@@ -21,8 +21,8 @@
   },
   {
     "id": "f6e25e8c",
-    "first_name": "Brandais",
-    "last_name": "Hutchinson",
+    "firstName": "Brandais",
+    "lastName": "Hutchinson",
     "gender": "Female",
     "email": "bhutchinson2@hotmail.com",
     "password": "vM6_Xq3f",
@@ -31,8 +31,8 @@
   },
   {
     "id": "26a9b63a",
-    "first_name": "Darwin",
-    "last_name": "Knevett",
+    "firstName": "Darwin",
+    "lastName": "Knevett",
     "gender": "Male",
     "email": "dknevett3@gmail.com",
     "password": "cF6?A)>NU\"H|2,9&",
@@ -41,8 +41,8 @@
   },
   {
     "id": "86549d74",
-    "first_name": "Devonna",
-    "last_name": "Roscow",
+    "firstName": "Devonna",
+    "lastName": "Roscow",
     "gender": "Female",
     "email": "droscow4@gmail.com",
     "password": "12345",

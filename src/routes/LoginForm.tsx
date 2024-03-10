@@ -1,8 +1,8 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import { ReactElement, useState, useEffect, FormEvent } from 'react';
 import { useAuth } from '../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = (): React.ReactElement => {
+const LoginForm = (): ReactElement => {
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPsw, setUserPsw] = useState<string>('');
   const { login, isAuthenticated, error } = useAuth();

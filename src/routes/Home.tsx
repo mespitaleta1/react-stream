@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api/index';
 
@@ -15,29 +15,29 @@ const Home = (): React.ReactElement => {
   }, []);
 
   return (
-    <div className="h-screen sm:p-auto lg:p-[10px]">
-      {/*header Section */}
-      <div className="px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl pt-24 text-center sm:pt-40">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-700 sm:text-6xl">Welcome to ReactStream</h2>
-          <p className="mt-6 text-lg leading-8 text-slate-500">
-            The ultimate way to enjoy all your favorite streaming programs, we got for you the most popular and recent
-            content, just pick a category and enjoy!
-          </p>
-        </div>
-      </div>
-      {/*Categories Section */}
-      <div className="m-[50px]">
-        <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-3">
-          {categories.map((category: string, idx: number) => (
-            <Link to={`/category/${category}`} key={idx} className="group relative cursor-pointer m-4">
-              <div className="max-w-sm p-6 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">
-                <p className="text-white text-center text-4xl font-bold tracking-tight hover:text-gray-300">
-                  {category}
-                </p>
-              </div>
-            </Link>
-          ))}
+    <div>
+      <div className="h-screen sm:p-auto lg:p-[10px] w-10/12 mx-auto">
+        {/*header Section */}
+        <div className="px-6 lg:px-8  w-8/12 mx-auto">
+          <div className="max-w-2xl pt-24 text-center sm:pt-40 ml-4">
+            <h2 className="text-4xl font-bold tracking-tight text-slate-700 sm:text-6xl text-left">ReactStream</h2>
+            <p className="mt-6 text-md leading-8.5 text-slate-500 text-left w-3/5 ">
+              The ultimate way to enjoy all your favorite streaming programs, we got for you the most popular and recent
+              content, just pick a category and enjoy!
+            </p>
+          </div>
+          {/*Categories Section */}
+          <div className="">
+            <div className="mt-40 flex">
+              {categories.map((category: string, idx: number) => (
+                <Link to={`/category/${category}`} key={idx} className="group relative cursor-pointer m-4">
+                  <div className="w-[170px] h-[80px] rounded-lg bg-slate-300 opacity-60 border-2 border-white pt-6 hover:border-slate-400">
+                    <p className="text-gray-500 text-center font-bold text-lg hover:text-slate-600">{category}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
