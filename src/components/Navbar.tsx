@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ userName, imgProfile }: { userName: string; imgProfile: string }) => {
   return (
-    <nav className="bg-transparent flex justify-around w-full p-2">
+    <nav className="bg-transparent flex justify-around w-full p-2 z-50">
       <div>
         <ul className="flex justify-around basis-3/5 w-36 ml-20">
           <li className="text-slate-700 p-2 cursor-pointer flex items-center">
