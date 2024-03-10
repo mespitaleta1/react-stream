@@ -2,6 +2,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../api/index';
 import { Movie } from '../api/content';
+import { Link } from 'react-router-dom';
 
 const ContentCategory = (): ReactElement => {
   let { contentId } = useParams();
@@ -17,19 +18,19 @@ const ContentCategory = (): ReactElement => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-5">
       <header className="absolute inset-x-0 top-0 z-20"></header>
       {/*Content movie  section*/}
       {content ? (
-        <div className="relative isolate overflow-hidden pt-14">
+        <div className="relative isolate overflow-hidden pt-14 w-10/12 rounded-lg mt-[20px] mx-auto mb-0">
           <img
-            src={content.image}
-            alt=""
-            className="absolute inset-0 -z-10 h-full w-full object-fill aspect-auto opacity-50 shadow-[inset_-12px_-8px_40px_#46464620]"
+            src={content.headerImg}
+            alt={`poster of ${content.title}`}
+            className="absolute inset-0 -z-10 h-full w-full object-fill aspect-auto opacity-50"
           />
           {/*Info section */}
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative m-[200px]">
-            <div className="hidden sm:mb-8 sm:flex sm:justify-center absolute bottom-0 right-10">
+            <div className="hidden sm:mb-8 sm:flex sm:justify-center absolute right-10">
               <div class="text-left">
                 <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">{contentId}</h1>
 
@@ -48,7 +49,7 @@ const ContentCategory = (): ReactElement => {
                     <p className="ms-2 text-sm font-bold text-gray-900 dark:text-black">{content.rating}</p>
                   </div>
 
-                  <p className="text-sm font-semibold leading-6 text-black">{content.description}</p>
+                  <p className="text-sm font-semibold leading-6 text-black w-10/12">{content.description}</p>
 
                   {/*watch now button */}
                   <div className="mt-8 flex">
@@ -61,10 +62,9 @@ const ContentCategory = (): ReactElement => {
                       >
                         <path d="M6.3 2.84A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.27l9.344-5.891a1.5 1.5 0 0 0 0-2.538L6.3 2.841Z" />
                       </svg>
-
-                      <a href="#" className="ml-2 tracking-wide">
+                      <Link to={`/play-movie/${content.title}`} className="ml-2 tracking-wide">
                         WATCH NOW
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

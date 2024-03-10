@@ -3,6 +3,7 @@ export interface Movie {
   title: string;
   category: string;
   rating: number;
+  headerImg: string;
   image: string;
   trailer: string;
   description: string;

@@ -6,9 +6,10 @@ import Root from './routes/root';
 import Home from './routes/Home';
 import Movies from './routes/movies';
 import LoginForm from './routes/LoginForm';
-import ContentCategory from './routes/contentCategory';
+import ContentCategory from './routes/ContentCategory';
 import ContentDetails from './routes/contentDetails';
 import './index.css';
+import PlayMovie from './routes/playMovie';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: 'movies',
         element: <Movies />,
+      },
+      {
+        path: 'play-movie/:contentId',
+        element: <PlayMovie />,
       },
     ],
   },
