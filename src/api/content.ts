@@ -1,6 +1,6 @@
 export interface Movies {
   id: number;
-  movie: string;
+  title: string;
   category: string;
   rating: number;
   image: string;
@@ -10,7 +10,7 @@ export interface Movies {
 
 const getAll = async () => {
   try {
-    const response = await fetch('/src/db/movies.json');
+    const response = await fetch('/src/db/content.json');
     const data = await response.json();
     return data;
   } catch (error) {
@@ -21,7 +21,7 @@ const getAll = async () => {
 
 const getByCategory = async (category: string) => {
   try {
-    const response = await fetch('/src/db/movies.json');
+    const response = await fetch('/src/db/content.json');
     const data = await response.json();
     const content = data.filter((item: Movies) => item?.category === category);
     return content;
@@ -31,4 +31,16 @@ const getByCategory = async (category: string) => {
   }
 };
 
-export default { getAll, getByCategory };
+const getBytitle = async (title: string) => {
+  try {
+    const response = await fetch('/src/db/content.json');
+    const data = await response.json();
+    const content = data.find((item: Movies) => item?.title === title);
+    return content;
+  } catch (error) {
+    console.error('Error Fetching Movie:', error);
+    return null;
+  }
+};
+
+export default { getAll, getByCategory, getBytitle };

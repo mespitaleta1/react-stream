@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }: { children: ReactElement }) => {
       setError('email or password are incorrect');
     }
   };
-
   return <AuthContext.Provider value={{ isAuthenticated, userProfile, error, login }}>{children}</AuthContext.Provider>;
 };
 

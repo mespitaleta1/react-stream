@@ -1,11 +1,11 @@
 import user from './user';
-import movie from './movie';
+import content from './content';
 import data from './data';
 import auth from './auth';
 
 export default {
   user: user,
-  movie: movie,
+  content: content,
   data: data,
   auth: auth,
 };

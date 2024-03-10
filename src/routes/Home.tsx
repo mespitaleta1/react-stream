@@ -1,16 +1,17 @@
 import { useState, useEffect, ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../api/index';
 
 const Home = (): ReactElement => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const findCategories = async () => {
+    const getCategories = async () => {
       const data = await api.data.getAll();
       setCategories(data);
     };
 
-    findCategories();
+    getCategories();
   }, []);
 
   return (
@@ -29,13 +30,13 @@ const Home = (): ReactElement => {
       <div className="m-[50px]">
         <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-3">
           {categories.map((category: string, idx: number) => (
-            <div key={idx} className="group relative cursor-pointer m-4">
+            <Link to={`/category/${category}`} key={idx} className="group relative cursor-pointer m-4">
               <div className="max-w-sm p-6 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">
                 <p className="text-white text-center text-4xl font-bold tracking-tight hover:text-gray-300">
                   {category}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
