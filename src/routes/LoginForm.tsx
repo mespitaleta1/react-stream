@@ -4,14 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import Alert from '../components/Alert';
 
 const LoginForm = (): ReactElement => {
+  const navigate = useNavigate();
+  const { login, isAuthenticated, error } = useAuth();
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPsw, setUserPsw] = useState<string>('');
-  const [emptyField, setEmptyfield] = useState<boolean>(false);
-  const [invalidEmail, setInvalidEmail] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>('');
-  const [showError, setShowError] = useState<boolean>(false);
-  const { login, isAuthenticated, error } = useAuth();
-  const navigate = useNavigate();
+  const [formError, setFormError] = useState<object>({
+    email: '',
+    password: '',
+    isValid: true,
+  });
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -19,15 +20,14 @@ const LoginForm = (): ReactElement => {
     }
 
     if (error) {
-      setShowError(!showError);
+      setFormError({ ...formError, isValid: false });
     }
   }, [isAuthenticated, error]);
 
   const isValidEmail = (email: string) => {
     const emailRegex = /(@gmail|@hotmail)\.com$/i;
     if (email && !emailRegex.test(email)) {
-      setInvalidEmail(true);
-      setErrorMessage('Please provide a valid email address');
+      setFormError({ ...formError, email: 'Please provide a valid email address' });
       return false;
     }
 
@@ -36,8 +36,11 @@ const LoginForm = (): ReactElement => {
 
   const isEmptyField = (email: string, password: string) => {
     if (!email || !password) {
-      setEmptyfield(true);
-      setErrorMessage('please fill this field to continue');
+      setFormError({
+        ...formError,
+        email: 'Please fill this field to continue',
+        password: 'please fill this field to continue',
+      });
       return true;
     }
 
@@ -53,8 +56,8 @@ const LoginForm = (): ReactElement => {
   };
 
   return (
-    <div className="mt-40">
-      <div className="flex min-h-full flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">
+    <div className="">
+      <div className="flex min-h-full flex-1 flex-col justify-center items-center px-6 py-24 lg:px-8 mt-30 border-2 border:bg-gray-400 border rounded-lg w-1/4 mt-40 mx-auto">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 text-black">Sign in to your account</h2>
 
@@ -70,13 +73,13 @@ const LoginForm = (): ReactElement => {
                     className="border rounded-md border-black p-1 w-full p-2"
                     type="email"
                     autoComplete="email"
-                    onChange={(e) => setUserEmail(e.target.value)}
+                    onChange={(e) => {
+                      setUserEmail(e.target.value);
+                      setFormError({ ...formError, email: '' });
+                    }}
                   />
-                  {invalidEmail && (
-                    <p class={`mt-2 ${invalidEmail ? 'visible' : 'invisible'} text-pink-600 text-sm`}>{errorMessage}</p>
-                  )}
-                  {emptyField && (
-                    <p class={`mt-2 ${emptyField ? 'visible' : 'invisible'} text-pink-600 text-sm`}>{errorMessage}</p>
+                  {formError.email && (
+                    <p class={`mt-2 ${formError ? 'visible' : 'invisible'} text-pink-600 text-sm`}>{formError.email}</p>
                   )}
                 </div>
               </div>
@@ -93,17 +96,22 @@ const LoginForm = (): ReactElement => {
                     className="border rounded-md border-black p-1 w-full p-2"
                     type="password"
                     autoComplete="password"
-                    onChange={(e) => setUserPsw(e.target.value)}
+                    onChange={(e) => {
+                      setUserPsw(e.target.value);
+                      setFormError({ ...formError, password: '' });
+                    }}
                   />
-                  {emptyField && (
-                    <p class={`mt-2 ${emptyField ? 'visible' : 'invisible'} text-pink-600 text-sm`}>{errorMessage}.</p>
+                  {formError.password && (
+                    <p class={`mt-2 ${formError ? 'visible' : 'invisible'} text-pink-600 text-sm`}>
+                      {formError.password}
+                    </p>
                   )}
                 </div>
               </div>
             </form>
           </div>
 
-          {showError && <Alert />}
+          {!formError.isValid && <Alert />}
 
           <div className="mt-10 w-auto">
             <button
