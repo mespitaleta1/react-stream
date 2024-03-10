@@ -1,8 +1,8 @@
-import { useState, useEffect, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import { useAuth } from '../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = (): React.ReactElement => {
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPsw, setUserPsw] = useState<string>('');
   const { login, isAuthenticated, error } = useAuth();
@@ -89,12 +89,7 @@ const LoginForm = () => {
         </div>
 
         <div>
-          <button
-            className="flex lg:w-[385px] w-[200px] justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mt-4"
-            onClick={() => handleSubmit()}
-          >
-            Log in
-          </button>
+          <button onClick={() => handleSubmit()}>Log in</button>
         </div>
       </div>
     </div>
