@@ -31,7 +31,7 @@ const Navbar = ({ userName, imgProfile }: { userName: string; imgProfile: string
       </div>
 
       <div className="flex">
-        <span className="text-slate-700 p-2 sm:hidden">{userName}</span>
+        <span className="text-slate-700 p-2">{userName}</span>
 
         {imgProfile ? (
           <div className="boder border-lime-300 border-2 rounded-full mr-10">
