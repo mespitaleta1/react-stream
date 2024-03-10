@@ -1,6 +1,6 @@
+import { ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../api/index';
-import { ReactElement, useEffect, useState } from 'react';
 import { Movie } from '../api/content';
 
 const ContentCategory = (): ReactElement => {

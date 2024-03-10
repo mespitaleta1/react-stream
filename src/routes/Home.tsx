@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api/index';
 
-const Home = (): React.ReactElement => {
+const Home = (): ReactElement => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

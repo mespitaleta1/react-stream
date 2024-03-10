@@ -23,7 +23,7 @@ const Navbar = ({ userName, imgProfile }: { userName: string; imgProfile: string
                 clip-rule="evenodd"
               />
             </svg>
-            <Link to="#">
+            <Link to="/movies">
               <span className="ml-1 hover:text-slate-900">Movies</span>
             </Link>
           </li>
