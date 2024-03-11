@@ -25,7 +25,7 @@ const ContentCategory = (): ReactElement => {
         {content.length > 0 ? (
           <ul className="mt-10 grid gap-x-8 gap-y-4 grid-cols-4">
             {content.map((item: { title: string; image: string }) => (
-              <Card title={item.title} image={item.image} />
+              <Card title={item.title} image={item.image} key={item.title} />
             ))}
           </ul>
         ) : (

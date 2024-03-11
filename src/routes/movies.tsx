@@ -1,9 +1,9 @@
 import api from '../api/';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 import type { Movie } from '../api/movie';
 import Card from '../components/Card';
 
-const Movies = () => {
+const Movies = (): ReactElement => {
   const [content, setContent] = useState<Movie | []>([]);
 
   useEffect(() => {
@@ -21,8 +21,8 @@ const Movies = () => {
       <div>
         {content.length > 0 ? (
           <ul className="mt-10 grid gap-x-8 gap-y-4 grid-cols-4">
-            {content.map((item) => (
-              <Card title={item.title} image={item.image} />
+            {content.map((item: { title: any; image: any }) => (
+              <Card title={item.title} image={item.image} key={item.title} />
             ))}
           </ul>
         ) : (

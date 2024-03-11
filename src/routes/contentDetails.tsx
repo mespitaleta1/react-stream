@@ -53,19 +53,19 @@ const ContentDetails = (): ReactElement => {
 
                   {/*watch now button */}
                   <div className="mt-8 flex">
-                    <div className="mr-2 flex rounded-md bg-indigo-500 px-24 py-5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        className="w-5 h-5"
-                      >
-                        <path d="M6.3 2.84A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.27l9.344-5.891a1.5 1.5 0 0 0 0-2.538L6.3 2.841Z" />
-                      </svg>
-                      <Link to={`/play-movie/${content.title}`} className="ml-2 tracking-wide">
+                    <Link to={`/play-movie/${content.title}`} className="ml-2 tracking-wide">
+                      <div className="mr-2 flex rounded-md bg-indigo-500 px-24 py-5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 cursor-pointer">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          className="w-5 h-5"
+                        >
+                          <path d="M6.3 2.84A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.27l9.344-5.891a1.5 1.5 0 0 0 0-2.538L6.3 2.841Z" />
+                        </svg>
                         WATCH NOW
-                      </Link>
-                    </div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -57,8 +57,8 @@ This project was built-in with Vite technologies, ones you fork the project and 
 
 As mentioned before, this project include login validations to access, so the users must be provide a valid email (gmail or hotmail, for this case), and be register on the database, for that reason, if you want to get access you must log in with this credentials:
 
-email: droscow4@gmail.com  
- Password: 12345
+      email: droscow4@gmail.com
+      Password: 12345
 
 Keep in mind that the login will be validating the empty fields, so don’t forget add it, otherwise, hope you enjoy it using ReactStream web app.
 

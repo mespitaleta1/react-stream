@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Alert from '../components/Alert';
 
 const REQUIRED_MSG = 'Please fill this field to continue';
+const INVALID_EMAIL_MSG = 'Please provide a valid email address';
 
 interface FormError {
   email: string;
@@ -35,7 +36,7 @@ const LoginForm = (): ReactElement => {
     const emailRegex = /(@gmail|@hotmail)\.com$/i;
 
     if (email && !emailRegex.test(email)) {
-      errors.email = 'Please provide a valid email address';
+      errors.email = INVALID_EMAIL_MSG;
     }
 
     if (!email) {
